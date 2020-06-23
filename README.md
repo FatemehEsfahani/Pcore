@@ -72,7 +72,7 @@ java -Xmx8g -cp "bin":"lib/*" TransposeWeightedGraphLong cnr-2000
 <pre>
 java -Xmx8g -cp "bin":"lib/*" SymmetrizeWeightedGraphLong cnr-2000 cnr-2000-t cnr-2000-u
 </pre>
-The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties. The input for 
+The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties. The input parameter passed to our implementations is cnr-2000-u.w. 
 
 
 # Edgelist format
