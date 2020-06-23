@@ -19,14 +19,14 @@ The graphs for K_BZ and K_VC should be in WebGraph format with edges being assig
 
 There are three files in this format:
 
-newTest.w.labeloffsets
+newTest.w.labeloffsets<br/>
+newTest.w.labels<br/>
+newTest.w.properties<br/>
 
-newTest.w.labels
+(see newTest example in the main directory)
 
-newTest.w.properties
-
-(see simplegraph example in the main directory)
-
+# Edgelist format
+This section is for the case when your graph is given a text file of edges (known as edgelist). If your graph is already in WebGraph format, skip to the next section.
 
 # Compiling
 
