@@ -2,7 +2,7 @@
 This repository contains efficient implementations for computing the k-core decomposition of large probabilistic graphs. The details of the implementations are described in the following paper:
 
 Fatemeh Esfahani, Venkatesh Srinivasan, Alex Thomo, and Kui Wu: Efficient Computation of Probabilistic Core Decomposition at
-Web-Scale
+Web-Scale. In Proceedings of the 22nd International Conference on Extending Database Technology (EDBT), 325–336. 
 
 # Compiling
 
