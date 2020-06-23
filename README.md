@@ -23,10 +23,17 @@ newTest.w.labeloffsets<br/>
 newTest.w.labels<br/>
 newTest.w.properties<br/>
 
-(see newTest example in the main directory)
+see newTest example in the main directory. 
 
 # Edgelist format
 This section is for the case when your graph is given a text file of edges (known as edgelist). If your graph is already in WebGraph format, skip to the next section.
+
+It is very easy to convert an edgelist file into WebGraph format. I am making the folloiwng assumptions:
+
+1) The graph is unlabeled and the vertices are given by consecutive numbers, 0,1,2,...
+(If there are some vertices "missing", e.g. you don't have a vertex 0 in your file, it's not a problem. WebGraph will create dummy vertices, e.g. 0, that does not have any neighbor.)
+
+2) The edgelist file is TAB separated (not comma separated). The last element of each line is edge probabilty which is stored in Long format.
 
 # Compiling
 
