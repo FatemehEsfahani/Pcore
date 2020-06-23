@@ -65,7 +65,14 @@ java -Xmx8g -cp "../bin":"../lib/*" GenerateWeightedGraphRandomLong cnr-2000 1 1
 </pre>
 The above java codes produces random weights between range 1 and 100. The weights are integers in the Long format. In our implementations, we access edge the actual edge probabilities by multplying the corresponding weight by 0.01. For instance, for an edge with weight 60 the corresponding probability 0.6 is obtained by multiplying 60 by 0.01.
 
-
+Our implementations work with undirected graphs with symmetrized weights. To change a graph to an undirected one, for each edge we add its inverse. This can be achieved by taking the union of the graph with its transpose. Here, we show how to do this for cnr-2000. Here, we show how to do this for cnr-2000:
+<pre>
+java -Xmx8g -cp "bin":"lib/*" TransposeWeightedGraphLong cnr-2000 
+</pre>
+<pre>
+java -Xmx8g -cp "bin":"lib/*" SymmetrizeWeightedGraphLong cnr-2000 cnr-2000-t cnr-2000-u
+</pre>
+The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties
 
 
 # Edgelist format
