@@ -41,6 +41,27 @@ It is very easy to convert an edgelist file into WebGraph format. I am making th
 mkdir -p bin; javac -cp "bin":"lib/*" -d bin src/it/unimi/dsi/webgraph/labelling/*.java src/*.java
 </pre>
 
+# Running
+K_BZ:
+
+java -Xmx12g -cp "bin":"lib/*" K_BZ basename.w threshold L precision DPtype 
+
+e.g.
+java -Xmx12g -cp "bin":"lib/*" K_BZ newTest.w 0.1 100 2 
+
+(Change : to ; if you are on Windows)
+
+The result will be stored in a text file basename+"eta-" + eta + "-bz.txt". The lines of the file are of the form vertex-id:core-number.
+
+K_VC:
+
+java -Xmx12g -cp "bin":"lib/*" K_VC basename.w threshold L precision DPtype 
+
+e.g.
+java -Xmx12g -cp "bin":"lib/*" K_VC newTest.w threshold L precision DPtype 
+
+The result will be stored in a text file basename+"eta-" + eta + "-vc.txt". The lines of the file are of the form vertex-id:core-number.
+
 # Using git
 First clone repo.
 
