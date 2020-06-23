@@ -64,7 +64,7 @@ Now, we generate probability values uniformly distibuted. Here, we show this for
 java -Xmx8g -cp "../bin":"../lib/*" GenerateWeightedGraphRandomLong cnr-2000 1 100
 </pre>
 The above java codes produces random weights between range 1 and 100. The weights are integers in the Long format. In our implementations, we access edge the actual edge probabilities by multplying the corresponding weight by 0.01. For instance, for an edge with weight 60 the corresponding probability is 0.6. 
-<img src="https://render.githubusercontent.com/render/math?math= 60 *e^{i \pi} = -1">
+<img src="https://render.githubusercontent.com/render/math?math= 60 \cdot e^{i \pi} = -1">
 
 
 
