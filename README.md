@@ -41,7 +41,7 @@ cnr-2000-t.properties
 
 The first two files are for the forward (regular) cnr-2000 graph. The other two are for the transpose (inverse) graph. 
 
-What's missing is the "offsets" file. This can be easily created by running:
+What is missing is the "offsets" file. This can be easily created by running:
 
 <pre>
 java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -o -O -L cnr-2000
