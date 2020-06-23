@@ -1,5 +1,5 @@
 # pcore
-Probabilistic K-Core Decomposition
+This repository contains efficient implementations for computing the k-core decomposition of large probabilistic graphs. The details of the implementations are described in the following paper:
 
 # Compiling
 
