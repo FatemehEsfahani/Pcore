@@ -14,6 +14,20 @@ This is an implementation of core decomposition for probabilistic graphs, which 
 
 P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
+# Input for K_BZ and K_VC
+The graphs for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities.
+
+There are three files in this format:
+
+newTest.w.labeloffsets
+
+newTest.w.labels
+
+newTest.w.properties
+
+(see simplegraph example in the main directory)
+
+
 # Compiling
 
 <pre>
