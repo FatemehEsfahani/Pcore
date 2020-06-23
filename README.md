@@ -59,7 +59,7 @@ java -Xmx8g -cp "bin":"lib/*" SelfLoopRemover cnr-2000-t cnr-2000-t
 </pre>
 where the flag "Xmx" specifies the maximum memory allocation pool for a Java virtual machine (JVM). It can be specified in different sizes, such as kilobytes, megabytes, and so on.
 
-Now, we generate probability values uniformly distibuted. Here, we show this for cnr-2000:
+Now, we generate weights which are uniformly distibuted. Here, we show this for cnr-2000:
 <pre>
 java -Xmx8g -cp "../bin":"../lib/*" GenerateWeightedGraphRandomLong cnr-2000 1 100
 </pre>
