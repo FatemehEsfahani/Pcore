@@ -86,24 +86,26 @@ mkdir -p bin; javac -cp "bin":"lib/*" -d bin src/it/unimi/dsi/webgraph/labelling
 
 # Running
 K_BZ:
-
-java -Xmx12g -cp "bin":"lib/*" K_BZ basename.w threshold L precision DPtype 
-
+<pre>
+java -Xmx12g -cp "bin":"lib/*" K_BZ basename.w threshold L precision 
+</pre>
 e.g.
-java -Xmx12g -cp "bin":"lib/*" K_BZ newTest.w 0.1 100 2 
-
+<pre>
+java -Xmx12g -cp "bin":"lib/*" K_BZ newTest.w 0.1 1500 2 
+</pre>
 (Change : to ; if you are on Windows)
 
-The result will be stored in a text file basename+"eta-" + eta + "-bz.txt". The lines of the file are of the form vertex-id:core-number.
+The result will be stored in a text file basename+"eta-" + eta + "-bz.txt". The lines of the file are of the form vertex-id:probabilistic core-number.
 
 K_VC:
-
-java -Xmx12g -cp "bin":"lib/*" K_VC basename.w threshold L precision DPtype 
-
+<pre>
+java -Xmx12g -cp "bin":"lib/*" K_VC basename.w threshold L precision  
+</pre>
 e.g.
-java -Xmx12g -cp "bin":"lib/*" K_VC newTest.w threshold L precision DPtype 
-
-The result will be stored in a text file basename+"eta-" + eta + "-vc.txt". The lines of the file are of the form vertex-id:core-number.
+<pre>
+java -Xmx12g -cp "bin":"lib/*" K_VC newTest.w 0.1 1500 2  
+</pre>
+The result will be stored in a text file basename+"eta-" + eta + "-vc.txt". The lines of the file are of the form vertex-id:probabilistic core-number.
 
 # Using git
 First clone repo.
