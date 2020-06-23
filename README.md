@@ -50,6 +50,21 @@ java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -o -O -L cnr-2000
 java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -o -O -L cnr-2000-t
 </pre>
 
+In our implementations, we assume that the graph deos not have any self-loop. Self-loops can be removed by running:
+<pre>
+java -Xmx8g -cp "bin":"lib/*" SelfLoopRemover cnr-2000 cnr-2000
+</pre>
+<pre>
+java -Xmx8g -cp "bin":"lib/*" SelfLoopRemover cnr-2000-t cnr-2000-t
+</pre>
+where the flag "Xmx" specifies the maximum memory allocation pool for a Java virtual machine (JVM). It can be specified in different sizes, such as kilobytes, megabytes, and so on.
+
+Now, we generate probability values uniformly distibuted. Here, we show this for cnr-2000:
+<pre>
+java -Xmx8g -cp "../bin":"../lib/*" GenerateWeightedGraphRandomLong cnr-2000 1 100
+</pre>
+The above java codes produces random weights between range 1 and 100. The weights are integers in the Long format. In our implementations, we access edge the actual edge probabilities by multplying the corresponding weight by 0.01. For instance, for an edge with weight 60 the corresponding probability (600.01) which is 0.6.
+
 
 
 
