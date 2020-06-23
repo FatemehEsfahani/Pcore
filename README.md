@@ -72,18 +72,11 @@ java -Xmx8g -cp "bin":"lib/*" TransposeWeightedGraphLong cnr-2000
 <pre>
 java -Xmx8g -cp "bin":"lib/*" SymmetrizeWeightedGraphLong cnr-2000 cnr-2000-t cnr-2000-u
 </pre>
-The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties. The input parameter passed to our implementations is cnr-2000-u.w. 
+The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties. For this dataset, cnr-2000-u.w should be passed as the first input parameter.
 
+Other parametres that are used for ruuning our codes are: Threshold, L, and precision.
 
-# Edgelist format
-This section is for the case when your graph is given a text file of edges (known as edgelist). If your graph is already in WebGraph format, skip to the next section.
-
-It is very easy to convert an edgelist file into WebGraph format. I am making the folloiwng assumptions:
-
-1) The graph is unlabeled and the vertices are given by consecutive numbers, 0,1,2,...
-(If there are some vertices "missing", e.g. you don't have a vertex 0 in your file, it's not a problem. WebGraph will create dummy vertices, e.g. 0, that does not have any neighbor.)
-
-2) The edgelist file is TAB separated (not comma separated). The last element of each line is edge probabilty which is stored in Long format.
+Threshold: It is used to give certainty when outputting core values in a probabilistic graph. In our implementations, we approximate tail probability of vertex degrees using central limit distribution in statistic. If a vertex has large number of incident edges, the approximation is accurate. The parameter L is used to inidicate where we can use approximation. We set L=1500 in our experiments. In fact, if a vertex has at least L number of incident edges, we approximate the tail probability of that vertex using central limit theorem. Otherwise, we use an exact method. The parameter precision  is used to change weights to the actual probabilities. For cnr-2000, precision is equal to 2.
 
 # Compiling
 
