@@ -15,7 +15,7 @@ This is an implementation of core decomposition for probabilistic graphs, which 
 P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
 # Input for K_BZ and K_VC
-The graphs for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities. We refore to this type of Webgraph as ArcLabelled Webgraph. 
+The graph datasets for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities. We refore to this type of Webgraph as ArcLabelled Webgraph. 
 
 There are three files in this format:
 
@@ -34,10 +34,22 @@ There you can see the follwoing files available for download:
 cnr-2000.graph<br/>
 cnr-2000.properties<br/>
 cnr-2000-t.graph<br/>
-cnr-2000-t.properties<br/>
+cnr-2000-t.properties
 
 ...<br/>
 (you can ignore the rest of the files)
+
+The first two files are for the forward (regular) cnr-2000 graph. The other two are for the transpose (inverse) graph. 
+
+What's missing is the "offsets" file. This can be easily created by running:
+
+<pre>
+java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -o -O -L cnr-2000
+</pre>
+<pre>
+java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -o -O -L cnr-2000-t
+</pre>
+
 
 
 
