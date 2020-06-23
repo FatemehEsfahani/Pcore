@@ -9,6 +9,11 @@ This is an implementation of core decomposition for probabilistic graphs using W
 
 P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
+# K_VC
+This is an implementation of core decomposition for probabilistic graphs, which do not fit in main memeory, using WebGraph compression framework in:
+
+P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
+
 # Compiling
 
 <pre>
