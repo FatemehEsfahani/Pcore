@@ -5,6 +5,9 @@ Fatemeh Esfahani, Venkatesh Srinivasan, Alex Thomo, and Kui Wu: Efficient Comput
 Web-Scale. In Proceedings of the 22nd International Conference on Extending Database Technology (EDBT), 325–336. 
 
 # K_BZ
+This is an implementation of core decomposition for probabilistic graphs using WebGraph compression framework in:
+
+P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
 # Compiling
 
