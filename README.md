@@ -15,7 +15,7 @@ This is an implementation of core decomposition for probabilistic graphs, which 
 P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
 # Input for K_BZ and K_VC
-The graphs for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities.
+The graphs for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities. We refore to this type of Webgraph as ArcLabelled Webgraph. 
 
 There are three files in this format:
 
@@ -24,6 +24,22 @@ newTest.w.labels<br/>
 newTest.w.properties<br/>
 
 see newTest example in the main directory. 
+
+There are many available datasets in http://law.di.unimi.it/datasets.php which can be converted to an ArcLabelled Webgraph. These datasets are unweighted and directed graphs.
+
+Let us see for an example dataset, cnr-2000, in http://law.di.unimi.it/webdata/cnr-2000
+
+There you can see the follwoing files available for download:
+
+cnr-2000.graph<br/>
+cnr-2000.properties<br/>
+cnr-2000-t.graph<br/>
+cnr-2000-t.properties<br/>
+
+...<br/>
+(you can ignore the rest of the files)
+
+
 
 # Edgelist format
 This section is for the case when your graph is given a text file of edges (known as edgelist). If your graph is already in WebGraph format, skip to the next section.
