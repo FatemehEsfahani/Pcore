@@ -25,7 +25,7 @@ newTest.w.properties<br/>
 
 see newTest example in the main directory. 
 
-There are many available datasets in http://law.di.unimi.it/datasets.php which can be converted to an ArcLabelled Webgraph. These datasets are unweighted and directed graphs.
+There are many available datasets in http://law.di.unimi.it/datasets.php which can be converted to an ArcLabelled Webgraph. These datasets are unweighted and directed graphs, which are in Webgraph format.
 
 Let us see for an example dataset, cnr-2000, in http://law.di.unimi.it/webdata/cnr-2000
 
