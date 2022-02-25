@@ -100,7 +100,7 @@ e.g.
 <pre>
 java -Xmx12g -cp "bin":"lib/*" TTextProc newTestWeighted.txt newTestWeighted-proc.txt
 </pre>
-See ''newTest'' example in the main directory. The above code creates a processed version (''edgelist_weighted-proc.txt '') which is symmetric and does not contain any duplicates or self-loops.
+See ''newTest'' example in the main directory. The above code creates a processed version (''edgelist_weighted-proc.txt '') which is symmetric and does not contain any duplicates or self-loops. Moreover, edges are stored up to 16-digit precision. You can change the precision in line 54 of the code to whatever value that you want. Please note that when you change precision, it should be fixed for the rest of the steps.
 
 From your processed file ''edgelist_weighted-proc.txt'', create a text file with the same format as your processed file which contains only edge list (no probabilities). You can call it ''edgelist.txt''.
 As an example, ''newTest.txt'' in the main directory is an edge list file which contains edges without their probabilities, and is obtained from ''newTestWeighted-proc.txt''. 
@@ -122,6 +122,8 @@ Next, create a weighted Webgraph using the following:
 java -Xmx12g -cp "bin":"lib/*" GenerateWeightedGraphFromTxtLong basename edgelist-proc.txt precision
 </pre>
 This will create three additional files: basename.w.labeloffsets, basename.w.labels, and basename.w.properties.
+
+**Note:** It should be noted that precision is automatically set to 16 significant digits. In line 54, TTextProc.java, you can modify it. 
 
 e.g.
 <pre>
