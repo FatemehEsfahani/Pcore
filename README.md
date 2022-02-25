@@ -14,8 +14,15 @@ This is an implementation of core decomposition for probabilistic graphs, which 
 
 P. Boldi and S. Vigna. The webgraph framework I: compression techniques. WWW'04
 
+# Compiling
+
+<pre>
+mkdir -p bin; javac -cp "bin":"lib/*" -d bin src/it/unimi/dsi/webgraph/labelling/*.java src/*.java
+</pre>
+Change : to ; if you are on Windows.
+
 # Input for K_BZ and K_VC
-The graph datasets for K_BZ and K_VC should be in WebGraph format with edges being assigned probabilities. We refore to this type of Webgraph as ArcLabelled Webgraph. 
+The graph datasets for K_BZ and K_VC should be in weighted WebGraph format with edges being assigned probabilities. We refore to this type of Webgraph as ArcLabelled Webgraph. 
 
 There are three files in this format:
 
@@ -25,6 +32,7 @@ newTest.w.properties<br/>
 
 see newTest example in the main directory. 
 
+## Webgraph format
 There are many available datasets in http://law.di.unimi.it/datasets.php which can be converted to an ArcLabelled Webgraph. These datasets are unweighted and directed graphs, which are in Webgraph format.
 
 Let us see for an example dataset, cnr-2000, in http://law.di.unimi.it/webdata/cnr-2000
@@ -74,15 +82,54 @@ java -Xmx8g -cp "bin":"lib/*" SymmetrizeWeightedGraphLong cnr-2000 cnr-2000-t cn
 </pre>
 The last code creates three files: cnr-2000-u.w.labeloffsets, cnr-2000-u.w.labels, and cnr-2000-u.w.properties. For this dataset, cnr-2000-u.w should be passed as the first input parameter.
 
-Other parametres that are used for ruuning our codes are: Threshold, L, and precision.
+Other parametres that are used for ruuning our codes are: &eta;, L, and precision.
 
-Threshold: It is used to give certainty when outputting core values in a probabilistic graph. In our implementations, we approximate tail probability of vertex degrees using central limit distribution in statistic. If a vertex has large number of incident edges, the approximation is accurate. The parameter L is used to inidicate where we can use approximation. We set L=1500 in our experiments. In fact, if a vertex has at least L number of incident edges, we approximate the tail probability of that vertex using central limit theorem. Otherwise, we use an exact method. The parameter precision  is used to change weights to the actual probabilities. For cnr-2000, precision is equal to 2.
+We define a threshold &eta; which is used to give certainty when outputting core values in a probabilistic graph. In our implementations, we approximate tail probability of vertex degrees using central limit distribution in statistic. If a vertex has large number of incident edges, the approximation is accurate. The parameter L is used to inidicate where we can use approximation. We set L=1500 in our experiments. In fact, if a vertex has at least L number of incident edges, we approximate the tail probability of that vertex using central limit theorem. Otherwise, we use an exact method. The parameter precision is used to change weights to the actual probabilities. For cnr-2000, precision is equal to 2.
 
-# Compiling
+## EdgeList format
+This section is for the case when your graph is given a text file of edges (known as edgelist) along with their assigned probabilities. We refer to this file as ''edgelist_weighted.txt'' file.
+It is very easy to convert a weighted edgelist file into ArcLabelled Webgraph format. I am making the following assumptions:
+1. The graph is unlabeled and the vertices are given by consecutive numbers 0, 1, 2, …
+2. The file is TAB separated (not comma separated).
 
+Now, to convert the weighted edgelist file to ArcLabelled Webgraph format execute the following steps:
 <pre>
-mkdir -p bin; javac -cp "bin":"lib/*" -d bin src/it/unimi/dsi/webgraph/labelling/*.java src/*.java
+java -Xmx12g -cp "bin":"lib/*" TTextProc edgelist_weighted.txt edgelist_weighted-proc.txt 
 </pre>
+e.g.
+<pre>
+java -Xmx12g -cp "bin":"lib/*" TTextProc newTestWeighted.txt newTestWeighted-proc.txt
+</pre>
+See ''newTest'' example in the main directory. The above code creates a processed version (''edgelist_weighted-proc.txt '') which is symmetric and does not contain any duplicates or self-loops.
+
+From your processed file ''edgelist_weighted-proc.txt'', create a text file with the same format as your processed file which contains only edge list (no probabilities). You can call it ''edgelist.txt''.
+As an example, ''newTest.txt'' in the main directory is an edge list file which contains edges without their probabilities, and is obtained from ''newTestWeighted-proc.txt''. 
+
+Next step is to create a deterministic Webgraph:
+
+**sort -nk 1 edgelist.txt | uniq > edgelistsortedfile** 
+
+(If you are on Windows, download sort.exe and uniq.exe from http://gnuwin32.sourceforge.net/packages/coreutils.htm)
+
+Run the following:
+<pre>
+java -cp "lib/*" it.unimi.dsi.webgraph.BVGraph -1 -g ArcListASCIIGraph dummy basename < edgelistsortedfile
+</pre>
+(This will create basename.graph, basename.offsets, basename.properties. The basename can be e.g. ''newTest'').
+
+Next, create a weighted Webgraph using the following:
+<pre>
+java -Xmx12g -cp "bin":"lib/*" GenerateWeightedGraphFromTxtLong basename edgelist-proc.txt precision
+</pre>
+This will create three additional files: basename.w.labeloffsets, basename.w.labels, and basename.w.properties.
+
+e.g.
+<pre>
+java -Xmx12g -cp "bin":"lib/*" GenerateWeightedGraphFromTxtLong newTest newTestWeighted-proc.txt 2
+</pre>
+
+
+The obtained files, **basename.graph**, **basename.offsets**, **basename.properties**, **basename.w.labeloffsets**, **basename.w.labels**, and **basename.w.properties** are required by the algorithms to be able to run. 
 
 # Running
 K_BZ:
@@ -111,14 +158,14 @@ The result will be stored in a text file basename+"eta-" + eta + "-vc.txt". The 
 First clone repo.
 
 <pre>
-git clone https://github.com/thomouvic/pcore.git
+git clone https://github.com/FatemehEsfahani/Probabilistic-Core-Decomposition.git
 </pre>
 
-This will create a directory "pcore" with the current code of this project. The subdirectories created are "src" and "lib". 
+This will create a directory "Probabilistic-Core-Decomposition" with the current code of this project. The subdirectories created are "src" and "lib". 
 
-Copy the source files you changed to "pcode/src". 
+Copy the source files you changed to "Probabilistic-Core-Decomposition/src". 
 
-While being in "pcode", run 
+While being in "Probabilistic-Core-Decomposition", run 
 <pre>
 git add .
 </pre>
